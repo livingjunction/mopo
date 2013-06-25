@@ -1,0 +1,11 @@
+<ul class="breadcrumb">
+
+  <% if @scrap.assignment %>
+    <li><%= link_to @scrap.assignment.category.name, category_path(@scrap.assignment.category) %> <span class="divider">/</span></li>
+    <li><%= link_to @scrap.assignment.name, category_assignment_path(@scrap.assignment.category, @scrap.assignment) %> <span class="divider">/</span></li>
+  <% end %>
+
+  <% if @scrap.project %>
+    <li><%= link_to @scrap.project.name, project_path(@scrap.project_id) %> <span class="divider">/</span></li>
+  <% end %>
+</ul>

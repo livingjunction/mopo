@@ -1,0 +1,26 @@
+<% if can? :create, Assignment %>
+  <div id="new-assignment">
+    <%= button_new t('.new_assignment'), new_category_assignment_path(@category) %>
+  </div>
+<% end %>
+
+<div id="category-assignments" class="listview-filter">
+  <ul data-role="listview" data-divider-theme="b" data-inset="true" data-filter="true"
+    data-filter-placeholder="<%= t('.search_assignments') %>"
+    data-update-url="<%= sort_assignments_url %>">
+
+    <% @assignments.each do |assignment| %>
+      <%= content_tag_for(:li, assignment, :class => "force-iconpos-left",
+        "data-theme" => "c", "data-icon" => "check") do %>
+
+          <%= link_to(category_assignment_path(assignment.category, assignment), "data-transition" => "slide", "data-direction" => "reverse") do %>
+            <%= assignment.name %>
+            <% if can? :update, Assignment %>
+              <span class="handle"><i class="icon-sort"></i></span>
+            <% end %>
+          <% end %>
+
+      <% end %>
+    <% end %>
+  </ul>
+</div>

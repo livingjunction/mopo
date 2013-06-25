@@ -1,0 +1,78 @@
+<%= content_tag "div", id: "new-edit-scrap-view", data: {
+  scrap: @scrap,
+  assets: @scrap.assets,
+  links: @scrap.links
+} do %>
+  <%= render "scraps/breadcrumbs" %>
+
+  <h2><%= header %></h2>
+
+  <% if @scrap.assignment %>
+    <div data-role="collapsible" data-mini="true">
+       <h3><%= t('scraps.shared.instructions') %></h3>
+       <div><%= show_line_breaks @scrap.assignment.description %></div>
+    </div>
+  <% end %>
+
+  <%= render :partial => "form"  %>
+
+  <form id="new_link">
+    <table>
+      <tr>
+        <td class="thumb"><i class="icon-link icon-2x"></i></td>
+        <td><input id="link_url" type="url" placeholder="url" data-mini="true" data-clear-btn="true" /></td>
+        <td class="button"><button id="add_link" data-inline="true" data-mini="true"><%= t('shared.add') %></button></td>
+      </tr>
+    </table>
+  </form>
+
+  <table id="scrap-links"></table>
+
+  <div id="scrap-add-assets">
+    <%= form_for Scrap::Image.new do |f| %>
+      <div data-role="button" data-mini="true" data-inline="true" class="fileinput-button">
+        <i class="icon-picture"></i>
+        <span class="label"><%= t('scraps.shared.image') %></span>
+        <%= f.file_field :asset, :accept => "image/*", name: "asset[asset]",  "data-role" => "none" %>
+      </div>
+    <% end %>
+
+    <%= form_for Scrap::Video.new do |f| %>
+      <div data-role="button" data-mini="true" data-inline="true" class="fileinput-button">
+        <i class="icon-facetime-video"></i>
+        <span class="label"><%= t('scraps.shared.video') %></span>
+        <%= f.file_field :asset, :accept => "video/*", name: "asset[asset]",  "data-role" => "none" %>
+      </div>
+    <% end %>
+
+    <%= form_for Scrap::Audio.new do |f| %>
+      <div data-role="button" data-mini="true" data-inline="true"
+        class="fileinput-button <%= 'ui-disabled' if ios? %>">
+
+        <i class="icon-music"></i>
+        <span class="label"><%= t('scraps.shared.audio') %></span>
+        <%= f.file_field :asset,  :accept => "audio/*", name: "asset[asset]",  "data-role" => "none" %>
+      </div>
+    <% end %>
+
+    <%= form_for "Scrap::File".constantize.new do |f| %>
+      <div data-role="button" data-mini="true" data-inline="true"
+        class="fileinput-button <%= 'ui-disabled' if ios? %>">
+
+        <i class="icon-folder-open"></i>
+        <span class="label"><%= t('scraps.shared.file') %></span>
+        <%= f.file_field :asset,  name: "asset[asset]",  "data-role" => "none" %>
+      </div>
+    <% end %>
+
+    <div id="media_link" data-role="button" data-mini="true" data-inline="true" class="fileinput-button">
+      <i class="icon-link"></i>
+      <span class="label"><%= t('scraps.shared.link') %></span>
+    </div>
+  </div>
+
+  <table id="scrap-assets"></table>
+
+  <button id="submit_scrap" data-theme="e"><%= t('helpers.submit.create') %></button>
+
+<% end %>

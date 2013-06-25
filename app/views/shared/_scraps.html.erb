@@ -1,0 +1,59 @@
+<% scraps.each do |scrap| %>
+  <li>
+    <div class="thumbnail">
+      <% #user %>
+      <div class="caption">
+        <%= link_to image_tag(scrap.user.avatar.url(:thumb)),
+          user_path(scrap.user), :class => "user-avatar" %>
+        <div>
+          <%= link_to truncate(scrap.name, :length => 40),
+            scrap_path(scrap), :class => "scrap-name ui-link" %>
+        </div>
+        <%= link_to scrap.user.full_name, user_path(scrap.user),
+          :class => "user-name ui-link" %>
+      </div>
+
+      <% #text %>
+      <%= link_to show_line_breaks(truncate(scrap.description, :length => 100)),
+        scrap_path(scrap), :class => "scrap-thumbnail-text" %>
+
+      <% #image or video %>
+      <%= scrap_thumb(scrap) %>
+
+      <div class="scrap-thumbnail-info">
+        <a href="<%= scrap_path(scrap) %>">
+          <% if !scrap.images.empty? %>
+            <span><i class="icon-picture"></i></span>
+          <% end %>
+
+          <% if !scrap.videos.empty? %>
+            <span><i class="icon-facetime-video"></i></span>
+          <% end %>
+
+          <% if !scrap.audios.empty? %>
+            <span><i class="icon-music"></i></span>
+          <% end %>
+
+          <% if !scrap.files.empty? %>
+            <span><i class="icon-folder-open"></i></span>
+          <% end %>
+
+          <% if !scrap.links.empty? %>
+            <span><i class="icon-link"></i></span>
+          <% end %>
+
+
+          <% #likes %>
+          <% if scrap.likes.size > 0 %>
+            <span><%= t('shared.likes.counts', :count => scrap.likes.size) %></span>
+          <% end %>
+
+          <% #comments  %>
+          <span><%= t('shared.comments.counting', :count => scrap.comments.size) %></span>
+
+        </a>
+      </div>
+
+    </div>
+  </li>
+<% end %>

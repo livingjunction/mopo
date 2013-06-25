@@ -1,0 +1,14 @@
+<tr>
+  <td class="thumb">
+    <% if(asset.get('thumb_url')){ %>
+      <img src="<%= asset.get('thumb_url') %>" />
+    <% } else if(asset.isAudio()) { %>
+      <i class="icon-music icon-2x"></i>
+    <% } else if(asset.isFile()) { %>
+      <i class="icon-folder-open icon-2x"></i>
+    <% }  %>
+  </td>
+  <td><%= asset.get('name') %></td>
+  <td></td> 
+  <td class="delete-asset"><i class="icon-remove-sign icon-large"></i></td>   
+</tr>

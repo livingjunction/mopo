@@ -1,0 +1,12 @@
+.ui-content {
+  h1, h2, h3, h4, h5, h6 {
+    margin: ($baseLineHeight / 2) 0;
+  }
+
+  h1 { font-size: $baseFontSize * 2; line-height: $baseLineHeight * 2; }
+  h2 { font-size: $baseFontSize * 1.75; line-height: $baseLineHeight * 1.75;}
+  h3 { font-size: $baseFontSize * 1.5; line-height: $baseLineHeight * 1.5;}
+  h4 { font-size: $baseFontSize * 1.25; line-height: $baseLineHeight * 1.25;}
+  h5 { font-size: $baseFontSize; }
+  h6 { font-size: $baseFontSize * 0.85; }
+}

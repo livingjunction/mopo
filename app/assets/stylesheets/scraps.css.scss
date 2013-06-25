@@ -1,0 +1,169 @@
+// customized bootstrap _thumbnails
+// Make wrapper ul behave like the grid
+.thumbnails {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  @include clearfix();
+  margin-top: 10px;
+}
+
+// Float li to make thumbnails appear in a row
+.thumbnails > li {
+  margin-bottom: 10px;
+}
+
+// The actual thumbnail (can be `a` or `div`)
+.thumbnail {
+  display: block;
+  border: 1px solid $grayLighter;
+  background: $white;
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
+  .caption {
+    color: $gray;
+    padding: $scrapThumbnailPadding;
+    background: $white;
+    overflow: hidden;
+
+    a.scrap-name {
+      &:link, &:visited {
+        //font-weight: normal;
+        //color: $grayDark;
+      }
+    }
+  }
+  .scrap-thumbnail-video {
+    display: block;
+    min-height: 100px;
+    position: relative;
+  }
+  .scrap-video-play {
+    color: $white;
+    width: 54px;
+    height: 54px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -27px;
+    margin-top: -27px;
+    .icon-play-circle {
+      width: 54px;
+      height: 54px;
+    }
+  }
+  .scrap-thumbnail-video img,
+  .scrap-thumbnail-image img {
+    width: 100%;
+  }
+  .scrap-thumbnail-text{
+    display: block;
+    padding: $scrapThumbnailPadding;
+    padding-top: 0;
+    &:link, &:visited {
+      font-weight: normal;
+      color: $grayDark;
+    }
+  }
+  .scrap-thumbnail-link{
+    display: block;
+    padding: $scrapThumbnailPadding;
+    padding-top: 0;
+  }
+  .scrap-thumbnail-info {
+    background: $grayLighter;
+    padding: $scrapThumbnailPadding;
+
+    a {
+      color: $grayDark !important;
+      font-weight: normal !important;
+    }
+    span + span {
+      margin-left: 10px;
+    }
+  }
+}
+
+.user-avatar {
+  float: left;
+  margin-right: 10px;
+  img {
+    width: 40px;
+    height: 40px;
+  }
+}
+.user-name {
+  color: $grayDark !important;
+  text-decoration: none;
+}
+
+.scrap-buttons {
+  text-align: right;
+}
+
+.scrap-header {
+  .scrap-info {
+    .user-name {
+      font-size: 18px;
+    }
+    .scrap-details {
+      color: $grayLight;
+      margin-top: 2px;
+      .scrap-time:after {
+        content: " - ";
+      }
+    }
+  }
+}
+.scrap-name {
+  clear: both;
+  margin-bottom: 10px;
+}
+
+video {
+  max-width: 100%;
+  height: auto;
+}
+.scrap-images img{
+  width: 100%;
+  height: auto;
+}
+
+.scrap-social-buttons {
+  margin-top: 20px;
+
+  .scrap-tweet {
+    display: inline-block;
+  }
+  .scrap-fb-like {
+    display: inline-block;
+    height: 20px;
+    margin-right: 20px;
+    overflow: hidden;
+    width: 90px;
+  }
+
+  .scrap-likes {
+    display: inline-block;
+    vertical-align: top;
+
+    div {
+      display: inline-block;
+    }
+    a#like-scrap {
+      color: rgb(51, 51, 51);
+      margin-right: 2px;
+
+      &.liked {
+        color: $blue;
+      }
+    }
+  }
+}
+
+

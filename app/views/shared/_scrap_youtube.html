@@ -1,0 +1,8 @@
+<% youtube_id = get_youtube_id(link.url) %>
+<% unless youtube_id.nil? %>
+  <div class="youtube-container">
+    <iframe width="560" height="315" src="http://www.youtube.com/embed/<%= youtube_id %>" frameborder="0" allowfullscreen></iframe>
+  </div>
+<% else %>
+  <%= render :partial => "shared/scrap_link", :locals => {:link => link} %>
+<% end %>

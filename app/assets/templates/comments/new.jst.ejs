@@ -1,0 +1,39 @@
+<form class="media">
+  <div class="field_with_emoticons">
+    <textarea id="comment_body" name="comment_body" placeholder="<%= I18n.t('shared.comments.new.body_label') %>"></textarea>
+    <a href="#emoticonsPopup" id="emoticonsPopupLink" data-rel="popup"><i class="icon-smile icon-2x"></i></a>
+    <div data-role="popup" id="emoticonsPopup">
+      <p>
+        <span class="css-emoticon">:)</span>
+        <span class="css-emoticon">:-D</span>
+        <span class="css-emoticon">;-)</span>
+        <span class="css-emoticon">:-*</span>
+        <span class="css-emoticon">:(</span>
+        <span class="css-emoticon">:-/</span>
+        <span class="css-emoticon">:-P</span>
+        <span class="css-emoticon">:o)</span>
+        <span class="css-emoticon">:-O</span>
+        <span class="css-emoticon">:-X</span>
+        <span class="css-emoticon">:'(</span>
+        <span class="css-emoticon">:&gt;</span>
+        <span class="css-emoticon pink-emoticon counter-rotated">&lt;3</span>
+        <span class="css-emoticon">=)</span>
+        <span class="css-emoticon">8)</span>
+        <span class="css-emoticon">:}</span>
+        <span class="css-emoticon">8D</span>
+        <span class="css-emoticon">XD</span>
+        <span class="css-emoticon">:&lt;</span>
+        <span class="css-emoticon">:[</span>
+        <span class="css-emoticon">:{</span>
+        <span class="css-emoticon">=(</span>
+        <span class="css-emoticon">;D</span>
+        <span class="css-emoticon">=P</span>
+        <span class="css-emoticon">:S</span>
+        <span class="css-emoticon">:#</span>
+        <span class="css-emoticon">O:)</span>
+      </p>
+    </div>
+  </div>
+
+  <button id="add_comment"><%= I18n.t('shared.comments.new.submit') %></button>
+</form>

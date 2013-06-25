@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mopo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <%= stylesheet_link_tag    "tour", :media => "all" %>
+  <%= csrf_meta_tags %>
+  <%= render :partial => 'layouts/ga' %>
+</head>
+<body>
+  <header>
+    <%= image_tag "tour/lj.png" %>
+  </header>
+  
+  <%= yield %>
+
+  <footer>
+    <div class="container">
+      <address>        
+        Kiinnostuitko? Ota yhteyttä Living Junction Oy:hyn niin kerromme lisää ​<br/> 
+        <a href="mailto:olli.laesvirta@livingjunction.com">olli.laesvirta@livingjunction.com</a>,
+        <span class="phone">+358 44 304 0034</span>
+      </address>
+    </div>
+  </footer>
+</body>
+</html>

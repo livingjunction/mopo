@@ -1,0 +1,41 @@
+// Place all the styles related to the activities controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+#notifications-panel {
+  #notifications {
+    div.spinner {
+      padding: 10px;
+      text-align: center;
+    }
+    li.notification { 
+      &.read {
+        a {
+          color: $grayLight;
+        }
+      }
+      a {
+        font-size: 11px;
+        
+        p {
+          margin: 0;
+        }
+        blockquote {
+          font-style: italic;
+          margin: 4px 0;
+        }
+        .time {
+          font-size: 0.9em
+        }
+      }
+    }
+    .ui-btn-inner, .ui-link-inherit, .ui-li-desc {
+      white-space: normal;
+    }
+    
+  }
+}
+.user-notifications-link {
+  &.unread {
+    background: $red;
+  }
+}

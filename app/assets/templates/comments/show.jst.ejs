@@ -1,0 +1,18 @@
+<a href="<%= Routes.user_path(comment.get('user_id')) %>" class="user-avatar">
+  <img src="<%= comment.get('user').avatar_thumb_url %>" alt="<%= comment.get('user').full_name %>"/>
+</a>
+
+<div class="media-body">
+  <h4 class="media-heading">
+    <a href="<%= Routes.user_path(comment.get('user_id')) %>" class="user-name">
+      <%= comment.get('user').full_name %>
+    </a>
+    <div class="media-actions">
+      <% if(Mopo.ability.can("destroy", comment)) { %>
+        <a href="#" class="delete-comment"><i class="icon-remove"></i></a>
+      <% } %>
+    <div>
+  </h4>
+  <div class="media-content"><%= comment.escape('body').replace(/\n/g, '<br/>') %></div>
+  <div class="media-time"><%= moment(comment.get('created_at')).fromNow() %></div>
+</div>

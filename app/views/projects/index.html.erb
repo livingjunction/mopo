@@ -1,0 +1,18 @@
+<% if can? :create, Project %>
+  <div id="new-project">
+    <%= button_new t('.new_project'), new_assignment_project_path(@assignment) %>
+  </div>
+<% end %>
+
+<div id="assignment-projects" class="listview-filter">
+  <ul data-role="listview" data-divider-theme="b" data-inset="true"
+    data-filter="true" data-filter-placeholder="<%= t('.search_projects') %>">
+
+    <% @projects.each do |project| %>
+    <li data-theme="c" data-icon="check" class="force-iconpos-left">
+      <%= link_to project.name, project_path(project),
+        "data-transition" => "slide", "data-direction" => "reverse" %>
+    </li>
+    <% end %>
+  </ul>
+</div>

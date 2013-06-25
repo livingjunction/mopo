@@ -1,0 +1,104 @@
+<% if share_scrap_to_fb?(@scrap) %>
+  <% content_for :head do %>
+    <%= tag :meta, property: "fb:app_id", content: Rails.configuration.secrets.facebook.app_id %>
+    <%= tag :meta, property: "og:site_name", content: Rails.configuration.secrets.facebook.site_name %>
+    <%= tag :meta, property: "og:title", content: @scrap.name %>
+    <%= tag :meta, property: "og:type", content: "website" %>
+    <%= tag :meta, property: "og:url", content: scrap_url(@scrap) %>
+    <%= tag :meta, property: "og:image", content: asset_url("fb_og_image.png") %>
+  <% end %>
+<% end %>
+
+<%= content_tag "div", class: "scrap-view", data: {
+    scrap: @scrap,
+    current_user_id: current_user_id
+} do %>
+
+  <%= render "scraps/breadcrumbs" %>
+
+  <div class="scrap-buttons">
+    <% if can? :update, @scrap %>
+      <%= button_edit edit_scrap_path(@scrap),
+        :class => "edit-scrap", "data-ajax" => "false" %>
+    <% end %>
+
+    <% if can? :destroy, @scrap %>
+      <%= button_delete [@scrap], @scrap, t('.delete_confirmation') %>
+    <% end %>
+  </div>
+
+  <div class="scrap-header">
+    <%= link_to image_tag(@scrap.user.avatar.url(:thumb)), user_path(@scrap.user),
+      :class => "user-avatar" %>
+
+    <div class="scrap-info">
+      <%= link_to @scrap.user.full_name, user_path(@scrap.user), :class => "user-name" %>
+      <div class="scrap-details">
+        <span class="scrap-time"><%= l @scrap.created_at, :format => :short %></span>
+        <span class="scrap-privacy"><%= t("scrap.privacy.#{@scrap.privacy}") %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scrap-name"><%= @scrap.name %></div>
+
+  <div class="scrap-description">
+    <%= show_line_breaks @scrap.description %>
+  </div>
+
+  <div class="scrap-links">
+    <ul class="unstyled">
+      <% @scrap.links.each do |link| %>
+        <li><%= render :partial => "shared/scrap_youtube", :locals => { :link => link } %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="scrap-images">
+    <% @scrap.images.each do |image| %>
+      <%= image_tag image.url(:portrait) %>
+    <% end %>
+  </div>
+
+  <div class="scrap-videos">
+    <% @scrap.videos.each do |video| %>
+      <video src="<%= video.url(:mobile) %>" width="100%" controls poster="<%= video.url(:poster)%>"></video>
+    <% end %>
+  </div>
+
+  <div class="scrap-audios">
+    <% @scrap.audios.each do |audio| %>
+      <audio src="<%= audio.url(:mobile) %>" controls></audio>
+    <% end %>
+  </div>
+
+  <div class="scrap-files">
+    <% @scrap.files.each do |file| %>
+      <a href="<%= file.url %>" download data-ajax="false">
+        <i class="icon-folder-open"></i> <%= file.asset_file_name %>
+      </a>
+    <% end %>
+  </div>
+
+  <div class="scrap-social-buttons">
+    <% if share_scrap_to_fb?(@scrap) %>
+      <div class="scrap-fb-like">
+        <div class="fb-like" data-send="false" data-layout="button_count" data-width="100" data-show-faces="false"></div>
+      </div>
+    <% end %>
+
+    <% if share_scrap_to_twitter?(@scrap) %>
+      <div class="scrap-tweet">
+        <a href="https://twitter.com/share" class="twitter-share-button"
+        data-text="<%= @scrap.name %>" data-lang="fi"><%= t('shared.tweet') %></a>
+      </div>
+    <% end %>
+
+    <%= content_tag "div", nil, class: "scrap-likes", data: { likes: @scrap.likes } %>
+  </div>
+
+  <%= content_tag "div", nil, class: "scrap-flags", data: { flag: @scrap.flag } %>
+
+  <%= content_tag "div", nil, class: "scrap-comments", data: { comments: @scrap.comments } %>
+
+<% end %>

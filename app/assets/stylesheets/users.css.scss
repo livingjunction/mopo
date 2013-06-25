@@ -1,0 +1,18 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user-header {
+  img {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  span {
+    display: inline-block;
+  }
+
+}
+#users {
+  .user-item {
+    clear: both;
+  }
+}

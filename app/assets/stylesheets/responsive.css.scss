@@ -1,0 +1,16 @@
+/* First breakpoint at 320px = 640 */
+@media all and (min-width: 321px){
+
+  #scrap-add-assets {
+    .ui-btn-inline {
+      .ui-btn-inner {
+        padding-left: 12px;
+        padding-right: 12px;
+
+        .label{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

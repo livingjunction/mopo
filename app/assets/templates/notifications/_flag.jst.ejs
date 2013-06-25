@@ -1,0 +1,11 @@
+<% if (activity && activity.trackable && activity.trackable.color) { %>
+  <p><%= I18n.t('shared.activities.flag.created', {
+    user: activity.user_full_name,
+    color: I18n.t("shared.activities.flag.colors." + activity.trackable.color),
+    scrap: _.str.truncate(activity.trackable.scrap_name, 20)
+  }) %> </p>
+  <p class="time"><%= moment(activity.created_at).fromNow() %></p>
+
+<% } else { %>
+  <p class="activity-deleted"><%= I18n.t('shared.activities.flag.created_and_deleted') %></p>
+<% } %>

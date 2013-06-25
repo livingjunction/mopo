@@ -1,0 +1,26 @@
+.field_with_emoticons{
+  position: relative;
+
+  textarea {
+    padding-right: 30px;
+  }
+
+  #emoticonsPopupLink {
+    color: $gray;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+
+    &:active,
+    &:hover {
+      color: $black;
+    }
+  }
+}
+#emoticonsPopup {
+  span {
+    cursor: pointer;
+    font-size: 16px;
+    margin: 3px;
+  }
+}

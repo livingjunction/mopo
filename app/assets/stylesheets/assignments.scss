@@ -1,0 +1,19 @@
+#category-assignments {
+  ul {
+    position: relative;
+    li {
+      a {
+        // margin-right: 40px;
+        // display: inline-block !important;
+      }
+      .handle {
+        cursor: move;
+        position: absolute;
+        padding: 10px;
+        right: 0;
+        top: 0;
+        width: 20px;
+      }
+    }
+  }
+}

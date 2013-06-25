@@ -1,0 +1,6 @@
+$('#scrapList').append('<%= j render(:partial => "shared/scraps", :formats => [:html], :locals => { :scraps => @scraps } ) %>');
+<% if @scraps.next_page %>
+  $('.pagination').replaceWith('<%= j will_paginate(@scraps) %>');
+<% else %>
+  $('.pagination').remove();
+<% end %>

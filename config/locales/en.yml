@@ -1,0 +1,173 @@
+en:
+  activerecord:
+    attributes:
+      asset:
+        asset_content_type: Type
+      assignment:
+        description: Description
+        name: Name
+      scrap:
+        name: Name
+        description: Description
+        privacy: Privacy
+      project:
+        name: Name
+      user:
+        email: Email
+        first_name: First name
+        last_name: Last name
+        security_code: Security code
+        password: Password
+        password_confirmation: Confirm password
+    models:
+      assignment: Assignment
+      project: Project
+      scrap: Scrap
+      user: User
+  assignments:
+    edit:
+      header: Editing assignment
+    index:
+      new_assignment: New assignment
+      search_assignments: Search assignments...
+    new:
+      header: New %{category} assignment
+    shared:
+      delete_confirmation: Only assignment will be removed. All scraps will remain and could be accessed from students' profile. Are you sure?
+      selector: ! 'Assignment: %{assignment}'
+    show:
+      scraps_header: Recent assignment scraps
+      project_selector: ! 'Project: (not selected)'
+  categories:
+    show:
+      assignment_selector: ! 'Assignment: (not selected)'
+      scraps_header: Recent category scraps
+    user_scraps_select_prompt: "Filter by category"
+  devise:
+    passwords:
+      edit:
+        header: Change your password
+        password: New password
+        password_confirmation: Confirm new password
+        submit: Change my password
+      new:
+        header: Forgot your password?
+        submit: Send me reset password instructions
+    registrations:
+      new:
+        header: Sign up
+        submit: Sign up
+    sessions:
+      new:
+        header: Already have account?
+    shared:
+      forgot_password: Forgot your password?
+      login: Log in
+      sign_up: Sign up
+      sign_out: Sign out
+  errors:
+    attributes:
+      url:
+        invalid: "is invalid or not responding"
+      scrap_image:
+        asset_content_type: "is not valid image"
+    models:
+      asset:
+        processing: "processing file failed"
+  flag:
+    colors:
+      green: green
+      red: red
+      yellow: yellow
+  helpers:
+    submit:
+      create: Create
+      submit: Save
+      update: Update
+  home:
+    index:
+      header: Recent scraps
+  layouts:
+    header:
+      logo: Mopo
+      user_profile: Profile
+      user_login: Log in
+    panel:
+      categories: Categories
+  projects:
+    index:
+      new_project: New project
+      search_projects: Search projects...
+    edit:
+      header: Editing project
+    new:
+      header: New %{assignment} project
+    select_prompt: "Project: not selected"
+    shared:
+      delete_confirmation: Only project will be removed. All scraps will remain and could be accessed from students' profile. Are you sure?
+    show:
+      project_selector: ! 'Project: %{project}'
+      scraps_header: Project scraps
+  scrap:
+    privacy:
+      public: Public
+      registered: Registered
+      private: Private
+  scraps:
+    edit:
+      header: Editing scrap
+    new:
+      header: New scrap
+    shared:
+      audio: Audio
+      file: Any file
+      image: Image
+      instructions: instructions
+      link: Link
+      video: Video
+    show:
+      delete_confirmation: Are you sure?
+  shared:
+    accept: Ok
+    add: Add
+    cancel: Cancel
+    confirmation: Are you sure?
+    delete: Delete
+    edit: Edit
+    tweet: Tweet
+    activities:
+      comment:
+        created: ! '%{user} commented %{scrap}:'
+        created_and_deleted: Added a comment which has since been removed
+      flag:
+        created: ! '%{user} set %{color} flag for %{scrap}'
+        created_and_deleted: Set a flag which has since been removed
+        colors:
+          green: green
+          red: red
+          yellow: yellow
+    assets:
+      processing: File is being processed...
+    comments:
+      counting:
+        one: 1 comment
+        other: ! '%{count} comments'
+        zero: Add comment
+      new:
+        body_label: Write a comment
+        submit: Create Comment
+    likes:
+      counts: ! 'Likes: %{count}'
+    layouts:
+      panel:
+       notifications: Notifications
+    scraps:
+      new: New scrap
+  users:
+    edit:
+      avatar: Edit profile picture
+      header: Edit %{name}
+      submit: Update
+    index:
+      header: Users
+      search_placeholder: Search for user

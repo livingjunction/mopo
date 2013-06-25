@@ -1,0 +1,31 @@
+<h2 class="user-header">
+  <%= image_tag @user.avatar.url(:thumb) %>
+
+  <span><%= @user.full_name %></span>
+
+  <% if can? :update, @user %>
+    <%= button_edit edit_user_path(@user),
+      :class => "edit-user" %>
+  <% end %>
+</h2>
+
+<div id="user-info">
+  <% if user_signed_in? && current_user == @user %>
+    <%= form_tag destroy_user_session_path, :method => :post, "data-ajax" => false do %>
+      <%= submit_tag t('devise.shared.sign_out'), "data-inline" => "true", "data-mini" => "true" %>
+    <% end %>
+  <% end %>
+</div>
+
+<div id="user-scraps">
+  <%= form_tag user_path(@user), method: :get, id: "user-scraps-category-filter" do %>
+    <div class="field">
+      <%= select_tag(:category_id,
+        options_from_collection_for_select(categories, :id, :name, @category_id),
+        {:prompt => t('categories.user_scraps_select_prompt'), "data-mini" => true}
+      ) %>
+    </div>
+  <% end %>
+
+  <%= render :partial => "shared/scraps_list", :locals => { :scraps => @scraps}  %>
+</div>

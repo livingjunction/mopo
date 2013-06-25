@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Mopo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+    <%= javascript_tag do %>
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+      moment.lang("<%= I18n.locale %>");
+      Mopo.ability = new Ability({rules : <%== abilities.to_json %> });
+    <%end %>
+    <%= render :partial => 'layouts/ga' %>
+    <%= yield :head %>
+  </head>
+  <body>
+    <div data-role="page" class="page">
+
+      <div class="header" data-role="header" data-position="fixed">
+
+        <a href="#categories-panel" data-role="none" class="categories-link"><i class="icon-reorder icon-large"></i></a>
+
+        <h1><%= link_to t("layouts.header.logo"), home_url, :class => "logo-link", "data-ajax" => false %></h1>
+
+        <div class="ui-btn-right">
+          <a href="<%= users_path %>" class="search-link" data-inline="true"><i class="icon-search icon-large"></i></a>
+          <% if user_signed_in? %>
+            <a href="<%= user_path(current_user)%>" class="user-profile-link"
+              data-inline="true" data-role="button">
+              <%= t("layouts.header.user_profile") %>
+             </a>
+            <a href="#notifications-panel" class="user-notifications-link <%= 'unread' if has_unread_notifications %>"
+              data-inline="true" data-role="button"><%= unread_notifications_counter %></a>
+          <% else %>
+            <a href="<%= new_user_session_path %>" class="user-login-link" data-inline="true" data-role="button"><%= t("layouts.header.user_login") %></a>
+          <% end %>
+        </div>
+      </div>
+
+      <div data-role="content">
+          <%= yield %>
+      </div>
+
+      <div data-role="panel" data-position="left" id="categories-panel" data-display="reveal" data-theme="a">
+        <ul data-theme="a" data-role="listview">
+          <li data-theme="c" data-icon="delete">
+              <a href="#categories-panel" data-rel="close"><%= t('layouts.panel.categories') %></a>
+          </li>
+
+          <% categories.each do |category| %>
+            <li data-theme="b">
+              <%= link_to category.name, category_path(category) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <% if user_signed_in? %>
+      <div data-role="panel" data-position="right" id="notifications-panel" data-display="overlay" data-theme="a">
+
+        <ul id="notifications" data-theme="c" data-role="listview">
+          <div class="spinner"><i class="icon-spinner icon-spin icon-large"></i></div>
+        </ul>
+
+      </div>
+      <% end %>
+
+    </div>
+
+    <%= render :partial => 'layouts/fb_root' %>
+    <%= render :partial => 'layouts/twitter' %>
+
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<h2><%= t('.header', :name => @user.full_name) %></h2>
+
+<%= form_for @user, :html => { :multipart => true, "data-ajax" => "false" } do |f| %>
+  
+  <div class="field">
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+  <div class="field">
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :avatar, t('.avatar') %>
+    <%= f.file_field :avatar, :accept => "image/*" %>
+  </div>
+  
+  <div class="actions">
+    <%= f.submit t('.submit')%>
+  </div>
+<% end %>

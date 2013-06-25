@@ -1,0 +1,17 @@
+<%= render :partial => "shared/assignment_info", 
+  :locals => { :assignment => @assignment }  %>
+
+<div id="project-selector">
+  <%= button_selector t('.project_selector'), assignment_projects_path(@assignment) %>
+</div>
+
+<% if can? :create, Scrap %>  
+  <div id="new-scrap">
+    <%= button_new t("shared.scraps.new"), new_assignment_scrap_path(@assignment) %>
+  </div>
+<% end %>
+
+<div id="assignment-scraps">
+  <h3><%= t('.scraps_header') %></h3>
+  <%= render :partial => "shared/scraps_list", :locals => { :scraps => @scraps }  %>
+</div>

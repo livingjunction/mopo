@@ -1,0 +1,31 @@
+<%
+  # show delete button which opens confirmation popup
+  object_class = object.class.name.downcase
+  popup_id = "delete-#{object_class}-dialog"
+  options = {
+    "data-rel" => "popup",
+    "data-position-to" => "window",
+    "data-role" => "button",
+    "data-transition" => "pop",
+    "data-iconpos" => "notext",
+    "data-icon" => "delete",
+    "data-mini" => "true",
+    "data-inline" => "true",
+    :class => "delete-#{object_class}"
+  }
+%>
+<%= link_to '', "##{popup_id}", options %>
+<div data-role="popup" id="<%= popup_id %>" data-overlay-theme="a" data-theme="c"
+  data-dismissible="false" style="max-width:400px;" class="ui-corner-all">
+    <div data-role="content" data-theme="d" class="ui-corner-bottom ui-content">
+        <h3 class="ui-title"><%= confirmation %></h3>
+
+        <%= #rails.js handleMethod ignores data-ajax=false use form directly
+          form_tag url, :method => :post, "data-ajax" => false, :class => "delete-form" do %>
+          <input name="_method" value="delete" type="hidden" />
+          <%= submit_tag t('shared.delete'), "data-inline" => "true",  "data-theme" => "b",
+            "data-transition" => "flow" %>
+        <% end %>
+        <a href="#" data-role="button" data-inline="true" data-rel="back" data-theme="c"><%= t('shared.cancel') %></a>
+    </div>
+</div>

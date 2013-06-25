@@ -1,0 +1,28 @@
+<%= form_for @scrap do |f| %>
+
+  <div class="field">
+    <%= f.collection_select(:project_id, @scrap.projects, :id, :name,
+      {:prompt => t('projects.select_prompt')},
+      {"data-mini" => true}) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %>
+    <%= f.text_area :description %>
+  </div>
+
+  <fieldset data-role="controlgroup" data-mini="true" data-type="horizontal">
+      <%= f.radio_button :privacy, :public %>
+      <%= f.label :privacy_public, t('scrap.privacy.public') %>
+      <%= f.radio_button :privacy, :registered %>
+      <%= f.label :privacy_registered, t('scrap.privacy.registered') %>
+      <%= f.radio_button :privacy, :private %>
+      <%= f.label :privacy_private, t('scrap.privacy.private') %>
+  </fieldset>
+
+<% end %>

@@ -1,0 +1,10 @@
+<%= render :partial => "shared/category_info", :locals => { :category => @category }  %>
+
+<div id="assignment-selector">
+  <%= button_selector t('.assignment_selector'), category_assignments_path(@category) %>
+</div>
+
+<div id="category-scraps">
+  <h3><%= t('.scraps_header') %></h3>
+  <%= render :partial => "shared/scraps_list", :locals => { :scraps => @scraps }  %>
+</div>

@@ -1,0 +1,11 @@
+<% if (activity && activity.trackable) { %>
+  <p><%= I18n.t('shared.activities.comment.created', {
+    user: activity.user_full_name,
+    scrap: _.str.truncate(activity.trackable.scrap_name, 20)
+  }) %> </p>
+  <blockquote>"<%= _.str.truncate(activity.trackable.body, 60) %>"</blockquote>
+  <p class="time"><%= moment(activity.created_at).fromNow() %></p>
+
+<% } else { %>
+  <p class="activity-deleted"><%= I18n.t('shared.activities.comment.created_and_deleted') %></p>
+<% } %>

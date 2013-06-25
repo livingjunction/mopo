@@ -1,0 +1,32 @@
+.media {
+  background: $grayLighter;
+  margin-top: 2px;
+  overflow: hidden;
+  padding: 5px;
+}
+.media-body {
+  .media-heading {
+    margin: 0 0 5px;
+
+    .media-actions {
+      float: right;
+      font-size: 14px;
+      text-align: right;
+      width: 15px;
+
+      a {
+        color: $grayLight;
+        padding-left: 4px;
+        i {
+          vertical-align: top;
+        }
+      }
+    }
+  }
+
+  .media-time {
+    color: $gray;
+    font-size: 11px;
+    margin-top: 5px;
+  }
+}

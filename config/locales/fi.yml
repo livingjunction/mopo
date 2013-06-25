@@ -1,0 +1,177 @@
+fi:
+  activerecord:
+    attributes:
+      asset:
+        asset_content_type: Tiedostotyyppi
+      assignment:
+        description: Kuvaus
+        name: Nimi
+      scrap:
+        name: Otsikko
+        description: Kuvaus
+        privacy: yksityisyys
+      project:
+        name: Nimi
+      user:
+        email: Sähköpostiosoite
+        first_name: Etunimi
+        last_name: Sukunimi
+        security_code: Koodi
+        password: Salasana
+        password_confirmation: Vahvista salasana
+    models:
+      assignment: Tehtävä
+      project: Ryhmä
+      scrap: Mediapala
+      user: Käyttäjä
+  assignments:
+    edit:
+      header: Tehtävän muokkaus
+    index:
+      new_assignment: Luo uusi tehtävä
+      search_assignments: Etsi tehtäviä...
+    new:
+      header: Uusi %{category} -aiheinen tehtävä
+    show:
+      project_selector: ! 'Ryhmä: (valitse tästä)'
+      scraps_header: Tehtävään liittyvät mediapalat
+    shared:
+      delete_confirmation: Ainoastaan tehtävä poistetaan. Tallennetut mediapalat säilyvät oppilaiden profiileissa. Oletko varma?
+      selector: ! 'Tehtävä: %{assignment}'
+  categories:
+    show:
+      assignment_selector: ! 'Tehtävä: (valitse tästä)'
+      scraps_header: Ilmiöön liittyvät mediapalat
+    user_scraps_select_prompt: "Ilmiö (valitse tästä)"
+  devise:
+    passwords:
+      edit:
+        header: Salasanan vaihtaminen
+        password: Uusi salasana
+        password_confirmation: Vahvista uusi salasana
+        submit: Vaihda salasana
+      new:
+        header: Unohditko salasanan?
+        submit: Lähetä salasanan vaihto-ohjeet sähköpostilla
+    registrations:
+      new:
+        header: Rekisteröityminen
+        submit: Rekisteröidy
+    sessions:
+      new:
+        header: Kirjaudu sisään
+    shared:
+      forgot_password: Unohditko salasanan?
+      login: Kirjaudu
+      sign_up: Rekisteröidy
+      sign_out: Kirjaudu ulos
+  errors:
+    attributes:
+      url:
+        invalid: "on virheellinen tai ei vastaa"
+      scrap_image:
+        asset_content_type: "ei kelpaa kuva"
+    models:
+      asset:
+        processing: "jalostus tiedosto epäonnistui"
+  flag:
+    colors:
+      green: vihreä
+      red: punainen
+      yellow: keltainen
+  helpers:
+    submit:
+      create: Lisää
+      submit: Tallenna
+      update: Päivitä
+  home:
+    index:
+      header: Tuoreimmat mediapalat
+  layouts:
+    header:
+      logo: Mopo
+      user_profile: Profiili
+      user_login: Kirjaudu sisään
+    panel:
+      categories: Ilmiöt
+  projects:
+    edit:
+      header: Ryhmän muokkaus
+    new:
+      header: Uusi %{assignment} -aiheinen ryhmä
+    select_prompt: ! 'Ryhmä: (valitse tästä)'
+    show:
+      project_selector: ! 'Ryhmä: %{project}'
+      scraps_header: Ryhmän tallentamat mediapalat
+    shared:
+      delete_confirmation: Ainoastaan ryhmä poistetaan. Tallennetut mediapalat säilyvät oppilaiden profiileissa. Oletko varma?
+    index:
+      new_project: Luo uusi ryhmä
+      search_projects: Etsi ryhmiä...
+  scrap:
+    privacy:
+      private: yksityinen
+      registered: ! 'kirjautuneet'
+      public: julkinen
+  scraps:
+    edit:
+      header: Mediapalan muokkaus
+    new:
+      header: Lisää mediapala
+    shared:
+      audio: Äänite
+      file: Tiedosto
+      image: Kuva
+      instructions: Tehtävänanto
+      link: Linkki
+      video: Video
+    show:
+      delete_confirmation: Oletko varma?
+  shared:
+    accept: Ok
+    add: Lisää
+    cancel: Peruuta
+    confirmation: Oletko varma?
+    delete: Poista
+    edit: Muokkaa
+    tweet: Twiittaa
+    activities:
+      comment:
+        created: ! '%{user} kommentoi "%{scrap}" -mediapalaa:'
+        created_and_deleted: Lisäsi kommentin, mutta kommentti on jo poistettu.
+      flag:
+        created: ! '%{user} asetti %{color} liikennevalon "%{scrap}" -mediapalaan'
+        created_and_deleted: Asetti liikennevalon, mutta liikennevalo on jo poistettu.
+        colors:
+          green: vihreän
+          red: punaisen
+          yellow: keltaisen
+    assets:
+      processing: Tiedostoa käsitellään...
+    comments:
+      counting:
+        one: 1 kommentti
+        other: ! '%{count} kommenttia'
+        zero: Lisää kommentti
+      new:
+        body_label: Kirjoita kommentti
+        submit: Lisää kommentti
+    likes:
+      counts: ! 'Tykkää: %{count}'
+    layouts:
+      panel:
+        notifications: Tapahtumat
+    scraps:
+      new: Lisää mediapala
+  users:
+    edit:
+      avatar: Vaihda profiilikuva
+      header: Muokkaa %{name}
+      submit: Tallenna muutokset
+    index:
+      header: Käyttäjille
+      search_placeholder: Etsi käyttäjä
+  time:
+    formats:
+      short: "%e.%m.%Y kello %H:%M"
+

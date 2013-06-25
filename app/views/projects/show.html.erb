@@ -1,0 +1,34 @@
+<%= render :partial => "shared/assignment_info",
+  :locals => { :assignment => @project.assignment }  if @project.assignment %>
+
+<% if  @project.assignment %>
+  <div id="project-selector">
+    <%= button_selector t('.project_selector', :project => @project.name),
+      assignment_projects_path(@project.assignment_id) %>
+  </div>
+<% else %>
+  <h2 id="project-name"><%= @project.name %></h2>
+<% end %>
+
+<div id="project-info">
+  <% if can? :update, @project %>
+    <%= button_edit edit_project_path(@project),
+      :class => "edit-project" %>
+  <% end %>
+
+  <% if can? :destroy, @project %>
+    <%= button_delete [@project], @project,
+      t('projects.shared.delete_confirmation') %>
+  <% end %>
+</div>
+
+<% if can? :create, Scrap %>
+  <div id="new-scrap">
+    <%= button_new t("shared.scraps.new"), new_project_scrap_path(@project) %>
+  </div>
+<% end %>
+
+<div id="project-scraps">
+  <h3><%= t('.scraps_header') %></h3>
+  <%= render :partial => "shared/scraps_list", :locals => { :scraps => @scraps }  %>
+</div>

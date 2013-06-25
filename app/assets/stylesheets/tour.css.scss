@@ -1,0 +1,252 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+$textColor: #484848;
+$orange: #fcb408;
+$btnOrangeBackground:              lighten($orange, 15%) !default;
+$btnOrangeBackgroundHighlight:     $orange !default;
+
+@import "bootstrap";
+@import "bootstrap-responsive";
+
+header {
+  background-color: #fff;
+  padding: 5px 15px;
+  height: 32px;
+}
+
+.jumbotron {
+  background: #7cbf0d ;
+  color: #fff;
+  padding: 70px 40px 80px;
+  
+  h1 {
+    font-size: 120px;
+    font-weight: bold;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  p {
+    font-size: 30px;
+    font-weight: 200;
+    line-height: 1.25;
+    margin: 20px 0 30px;
+  }
+  .btn {
+    padding: 30px 100px;
+    font-size: 40px;
+    font-weight: 200;
+    color: #fff;
+    border: 0;
+    @include border-radius(6px)
+  }
+  img {
+    height: 400px;
+    width: 355px;
+  }
+}
+
+.marketing {
+  h1 {
+    text-align: center;
+    margin: 30px 0 20px;
+    font-size: 60px;
+    font-weight: 200;
+    line-height: 1;
+  }
+  h2 {
+    font-weight: 200;
+    line-height: 1;    
+  }
+  p {
+    font-size: 24px;
+    line-height: 1.5;
+  }
+  li {
+    font-size: 19px; 
+    line-height: 1.5;
+  }
+  .phone-img {
+    img {    
+      height: 200px;
+      width: 107px;
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 70px;
+  border-top: 1px solid #484848;
+  background-color: #E6E6E6;
+  
+  address {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0;
+    
+    .phone {
+      white-space: nowrap;
+    }
+  }
+}
+
+hr {
+  height: 1px;
+  margin: 50px 0;
+  background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.3), rgba(0,0,0,0));
+  background-image: -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.3), rgba(0,0,0,0));
+  background-image: -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.3), rgba(0,0,0,0));
+  background-image: -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,.3), rgba(0,0,0,0));
+  border: 0;
+}
+
+.btn-orange{
+  @include buttonBackground($btnOrangeBackground, $btnOrangeBackgroundHighlight);
+} 
+
+/* Responsive
+-------------------------------------------------- */
+
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
+  header, footer {  
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+  .jumbotron {
+    margin-right: -20px;
+    margin-left: -20px;
+    padding-top: 25px;
+    padding-bottom: 30px;
+    text-align: center;
+    h1 {
+      font-size: 90px;
+    }
+    p, .btn {
+      font-size: 24px;
+    }
+    .btn {
+      padding: 19px 80px;
+    }
+    img {
+      height: 200px;
+      width: 177px;
+    }
+  }
+  .marketing {
+    text-align: center;
+    h1 {
+      font-size: 45px;
+    }
+    h2 {
+      font-size: 22px;      
+    }
+    p {      
+      font-size: 18px;
+    }
+    li {
+      font-size: 15px;
+      text-align: left;      
+    }
+    hr {
+      margin: 30px 0;
+    }
+    .phone-img {
+      margin-bottom: 20px;
+    }
+    .features-img {
+      margin-top: 20px;      
+      height:177px;
+      width: 220px;
+    }
+    .usage-img {
+      margin-bottom: 20px;      
+      height:177px;
+      width: 220px;      
+    }
+  }
+  footer {
+    padding: 20px;
+    address {    
+      font-size: 18px;
+    }
+  }
+
+}
+
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+  /* Remove padding above jumbotron */
+  body {
+    padding-top: 0;
+  }
+
+  .jumbotron {
+    padding: 20px;
+    h1 {
+      font-size: 60px;
+    }
+    p {
+      font-size: 18px;
+    }
+    .btn {
+      font-size: 22px;
+      padding: 14px 60px;
+    }
+    img {
+      height: 180px;
+      width: 160px;
+    }
+  }
+  .marketing {
+    h1 {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 20px;      
+    }
+    p {      
+      font-size: 14px;
+    }
+    li {
+      font-size: 14px;
+      text-align: left;      
+    }
+    hr {
+      margin: 30px 0;
+    }
+    .phone-img {
+      margin-bottom: 20px;
+    }
+    .features-img {
+      margin-top: 20px;      
+      height: 161px;
+      width: 200px;
+    }
+    .usage-img {
+      margin-bottom: 20px;      
+      height: 161px;
+      width: 200px;      
+    }
+  }
+  footer {
+    margin-top: 40px;
+    address {    
+      font-size: 14px;
+    }
+  }
+}
+
+ 
+
+
+

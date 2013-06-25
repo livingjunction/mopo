@@ -1,0 +1,24 @@
+<%= render :partial => "shared/category_info", 
+  :locals => { :category => assignment.category }  %>
+
+<div id="assignment-selector">
+  <%= button_selector t('assignments.shared.selector', :assignment => assignment.name),
+    category_assignments_path(assignment.category)  %>
+</div>
+
+<div id="assignment-info">
+  <div>  
+    <%= show_line_breaks assignment.description %>
+  </div>
+  
+  <% if can? :update, assignment %>
+    <%= button_edit edit_category_assignment_path(assignment.category, assignment), 
+      :class => "edit-assignment"  %>
+  <% end %>
+      
+  <% if can? :destroy, assignment %>
+    <%= button_delete [assignment.category, assignment], assignment,
+      t('assignments.shared.delete_confirmation')  %>
+  <% end %>
+
+</div>  
